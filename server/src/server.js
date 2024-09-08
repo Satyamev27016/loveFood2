@@ -1,15 +1,15 @@
-const express = require('express')
-const app = express()
-const port = 3000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+import dotenv from "dotenv";
+dotenv.config();
+import connectDB from "./db/index.js";
+import app from "./app.js";
+
+
+connectDB().then(() => {
+    app.listen(process.env.Port || 8000, () => {
+        console.log(`server is on port: ${process.env.PORT}`);
+    });
+}).catch((err) =>{
+    console.log("mongo db connection failed !!", err);
 })
 
-app.get('/login', (req, res) => {
-    res.send('Hello mister')
-  })
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
