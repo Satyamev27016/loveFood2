@@ -5,5 +5,16 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
-  }
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "description": "backen for love food ",
+  "main": "server.js",
+  "scripts": {
+  "start": "node src/server.js",
+  "dev": "nodemon src/server.js"
+  
+  },
+  "author": "satyamev singh",
+  "license": "ISC"
 }
