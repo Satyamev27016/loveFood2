@@ -26,20 +26,25 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8000/api/v1/user/regist', formData);
+            const response = await axios.post('http://localhost:8000/api/v1/user/register', formData,{
+                withCredentials: true
+            });
             alert(response.data.message);
         } catch (error) {
-            alert(error.response.data.error || 'Error registering user');
+            alert(error.response?.data?.error || 'Error registering user');
         }
     };
 
     const [password, setPassword] = useState("");
     const[showPassword, setShowPassword] = useState(false);
-    const[error, setError] = useState(false);
+    const[error, setError] = useState("");
     {/* Function to handle pasword change event */}
     const handlePasswordChange = (e) => {
         const value = e.target.value;
-        setPassword(value);
+        setFormData({
+            ...formData,
+            password: value
+            });
 
 {/* validation function */}
 
@@ -75,46 +80,64 @@ const Login = () => {
                         <div className="row d-flex justify-content-center">
                             <div className="col-lg-8">
                                 <h2 className="fw-bold mb-5">Sign up now</h2>
-                                <form>
+                                <form onSubmit={handleSubmit}>
                                     {/* <!-- 2 column grid layout with text inputs for the first and last names --> */}
                                     <div className="row">
                                         <div className="col-md-6 mb-4">
                                             <div className="form-outline">
-                                                <input type="text" id="form3Example1" className="form-control"  placeholder="First name" />
-                                                <label className="form-label" htmlFor="form3Example1 ">
-                                                    
-                                                </label>
+                                                <input  
+                                                        type="text" 
+                                                        name="fullName"
+                                                        value={formData.fullName}
+                                                        onChange={handleChange}
+                                                        
+                                                        className="form-control" 
+                                                        placeholder="Full Name" />
+
                                             </div>
                                         </div>
                                         <div className="col-md-6 mb-4">
                                             <div className="form-outline">
-                                                <input type="text" id="form3Example2" className="form-control"  placeholder="Last name" />
-                                                <label className="form-label" htmlFor="form3Example2">
-                                                    
-                                                </label>
+                                                <input 
+                                                        type="text" 
+                                                        name="username"
+                                                        value={formData.username}
+                                                        onChange={handleChange}
+                                                        className="form-control"  
+                                                        placeholder="username" 
+                                                        
+                                                    />
                                             </div>
                                         </div>
                                     </div>
 
                                     {/* <!-- Email input --> */}
+
                                     <div className="form-outline mb-4">
-                                        <input type="email" id="form3Example3" className="form-control"  placeholder=" Email address" />
-                                        <label className="form-label" htmlFor="form3Example3">
-                                        
-                                        </label>
+                                        <input 
+                                                type="email" 
+                                                name='email'
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                                className="form-control"  
+                                                placeholder=" Email address" 
+                                            />
                                     </div>
 
                                     {/* <!-- Password input --> */}
+
                                     <div className="form-outline mb-4">
-                                        <input type={showPassword ? "text" : "password"} 
-                                                id="form3Example4" className="form-control" 
-                                                placeholder=" Password" value={password} 
+                                        <input 
+                                                type={showPassword ? "text" : "password"} 
+                                                name='password'
+                                                value={formData.password}
+                                                className="form-control" 
+                                                placeholder=" Password"  
                                                 onChange={handlePasswordChange} 
                                             />
                                         <button type='button'
-                                                className=''
-                                                onClick={() => setShowPassword(!showPassword)}
-                                                style={{ border: 'none', background: 'transparent',  }}>
+                                                style={{ border: 'none', background: 'transparent',  }}
+                                                onClick={() => setShowPassword(!showPassword)}>
                                             <i className={showPassword ? "fas fa-eye-slash" : "fas fa-eye"}></i>    
                                         </button>
                                         
