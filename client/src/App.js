@@ -5,9 +5,15 @@ import {BrowserRouter as Router, Route,Switch, Routes} from 'react-router-dom';
 import '../node_modules/bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
-import Navbar from './components/Navbar.jsx';
-import Login from "./screen/login.jsx";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+
+
+import SignUp from "./screen/SignUp.jsx";
+import SignIn from "./screen/SignIn.jsx" ;
 import Home from "./screen/Home.jsx";
+
 import './App.css';
 
 function App() {
@@ -16,7 +22,8 @@ function App() {
     <div>
     <Routes>
     <Route exact path="/" element={<Home />} /> 
-    <Route exact path="/Login" element={<Login/>} />
+    <Route exact path="/SignUp" element={<SignUp/>} />
+    <Route exact path="/SignIn" element={<SignIn/>} />
     </Routes>
     </div> 
     </Router>

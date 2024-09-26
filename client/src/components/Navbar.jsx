@@ -3,15 +3,16 @@ import {Navbar, Nav, Container , NavDropdown} from 'react-bootstrap';
 
 const NavBar = () => {
     return (
-        <Navbar expand="lg" className="" style={{ backgroundColor: 'green' }}>
+        <Navbar expand="lg" className=""    style={{ backgroundColor: 'green' }}>
         <Container>
             <Navbar.Brand href="/" className="heading">loveFood</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
+            
             <Nav.Link href="/">Homes</Nav.Link>
             <Nav.Link href="/">Link</Nav.Link>
-            <Nav.Link href="/Login">login</Nav.Link>
+            <Nav.Link href="/SignUp">SignUp</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/">Action</NavDropdown.Item>
                 <NavDropdown.Item href="/">
@@ -24,6 +25,9 @@ const NavBar = () => {
                 </NavDropdown.Item>
             </NavDropdown>
             </Nav>
+            <div  id="basic-navbar-nav" className=" text-white font-bold ">
+            <Nav.Link href="/SignIn">Login</Nav.Link>
+            </div>
             </Navbar.Collapse>
         </Container>
         </Navbar>

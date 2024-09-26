@@ -4,7 +4,7 @@ import { useState } from 'react';
 import axios from 'axios';
 
 
-const Login = () => {
+const SignUp = () => {
 
     const[formData, setFormData] = useState({
         username: "",
@@ -191,4 +191,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;
