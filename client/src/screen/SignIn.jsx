@@ -8,8 +8,8 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [user, setUser] = useState(null); // store user data 
-  const [accessToken, setAccessToken] = useState(null); // store access token
-  const [refreshToken, setRefreshToken] = useState(null); // store refresh token
+  const [accessToken, setAccessToken] = useState(""); // store access token
+  const [refreshToken, setRefreshToken] = useState(""); // store refresh token
 
   const handleLogin = async (e) => {
     e.preventDefault(); // prevent default form submission
