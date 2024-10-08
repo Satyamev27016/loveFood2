@@ -7,11 +7,20 @@ const SignIn = () => {
   const [email , setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [user, setUser] = useState(null); // store user data 
+  const [accessToken, setAccessToken] = useState(null); // store access token
+  const [refreshToken, setRefreshToken] = useState(null); // store refresh token
 
   const handleLogin = async (e) => {
+    e.preventDefault(); // prevent default form submission
     try {
       const response = await axios.post('http://localhost:8000/api/v1/user/login', {email, password }); 
-      setMessage(response.data.message)
+
+      const {user, accessToken, refreshToken} = response.data.data;
+      setUser(user);
+      setAccessToken(accessToken);
+      setRefreshToken(refreshToken);
+      setMessage(response.data.message);  // show message from server of successful login
     }catch (error){
       setMessage(error.response?.data?.error || 'Error logging in user');
     }
@@ -63,6 +72,21 @@ const SignIn = () => {
               <p className="small fw-bold mt-2 pt-1 mb-2">Don't have an account? <a href="/" className="link-danger">Register</a></p>
             </div>
             {message && <p className=" text-center mt-3">{message}</p>}
+
+
+            {/*  display user infoo */}
+
+            {user && (
+                      
+              <div className=" text-center mt-4">
+                <h3>User Info</h3>
+                <p>Email: {user.email}</p>
+                <p>Full Name: {user.fullName}</p>
+                <p>Username: {user.username}</p>
+                </div>
+            )}
+          
+
           </MDBCol>
 
         </MDBRow>

@@ -2,11 +2,13 @@ import {asyncHandler} from "../utils/asyncHandler.js";
 import ApiError from "../utils/apiError.js";
 import {User} from "../models/user.model.js";
 import { ApiResponse } from "../utils/apiResponse.js";
-
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+import mongoose from "mongoose";
 
 const generateAccessAndRefreshToken = async(userId) => {
     try{
-        const user = await User.finfById(userId)
+        const user = await User.findById(userId)
         const accessToken = user.generateAccessToken()
         const refreshToken = user.generateRefreshToken()
         

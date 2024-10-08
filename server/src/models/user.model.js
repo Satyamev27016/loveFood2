@@ -42,7 +42,7 @@ const userSchema  = new Schema({
 // use of pre middleware
 
 userSchema.pre("save", async function(next){
-    if(this.isModified("pasword")){
+    if(this.isModified("password")){
         this.password = await bcrypt.hash(this.password, 12)
     }
     next();
