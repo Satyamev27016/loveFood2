@@ -20,9 +20,11 @@ app.use(cookieParser())
 // routes import 
 
 import userRouter from "./routes/user.route.js"
-
+import chatbotRoutes from "./routes/chatbot.route.js"
 // routes declareation 
 app.use('/api/v1/user', userRouter)
+
+app.use('/api/v1/chat', chatbotRoutes);
 
 
 app.listen(process.env.PORT, () => {
