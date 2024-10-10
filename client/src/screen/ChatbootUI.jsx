@@ -25,6 +25,20 @@ const ChatbootUI = () => {
         }
         setInput('');
     };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    };
+
+    const handleChange = (e) => {
+        setInput(e.target.value);
+        console.log("Input updated:", e.target.value);  // Add a log to see the input value change
+    };
+
+
+
     return (
         <div className="h-screen flex items-center justify-center bg-gray-100">
             <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6">
@@ -50,7 +64,10 @@ const ChatbootUI = () => {
                     <input
                         className="w-full p-2 border border-gray-300 rounded mr-2 focus:outline-none"
                         value={input}
-                        onChange={(e) => setInput(e.target.value)}
+                        onChange={handleChange} 
+
+                        onKeyDown={handleKeyDown}
+
                         placeholder="Type a message..."
                     />
                     <button

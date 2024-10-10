@@ -1,9 +1,14 @@
+
+import { EventEmitter } from 'events';
+
+
+
 import express from "express"
 // const express = require('express')
 import cors from "cors"
 import cookieParser from "cookie-parser"
 
-
+EventEmitter.defaultMaxListeners = 20;
 const app = express();
 
 app.use(cors({
@@ -20,7 +25,7 @@ app.use(cookieParser())
 // routes import 
 
 import userRouter from "./routes/user.route.js"
-import chatbotRoutes from "./routes/chatbot.route.js"
+import chatbotRoutes from "./routes/chatbot.route.cjs"
 // routes declareation 
 app.use('/api/v1/user', userRouter)
 
