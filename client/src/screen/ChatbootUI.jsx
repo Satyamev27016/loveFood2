@@ -17,7 +17,7 @@ const ChatbootUI = () => {
         setMessages([...messages, userMessage]);
 
         try {
-            const response = await axios.post('/api/v1/chat', { message: input });
+            const response = await axios.post('/api/v1/Chatboot', { message: input });
             const botMessage = { text: response.data.response, sender: 'bot' };
             setMessages([...messages, userMessage, botMessage]);
         } catch (error) {

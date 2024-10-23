@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-import {BrowserRouter as Router, Route,Switch, Routes} from 'react-router-dom';
+// import Button from 'react-bootstrap/Button';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import '../node_modules/bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
@@ -25,7 +25,7 @@ function App() {
     <Route exact path="/" element={<Home />} /> 
     <Route exact path="/SignUp" element={<SignUp/>} />
     <Route exact path="/SignIn" element={<SignIn/>} />
-    <Route exact path="/ChatbootUI " element={<ChatbootUI />} />
+    <Route exact path="/ChatbootUI" element={<ChatbootUI />} />
     </Routes>
     </div> 
     </Router>
