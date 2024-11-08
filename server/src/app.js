@@ -25,11 +25,10 @@ app.use(cookieParser())
 // routes import 
 
 import userRouter from "./routes/user.route.js"
-// import chatbotRoutes from "./routes/chatbot.route.cjs"
-// routes declareation 
-app.use('/api/v1/user', userRouter)
+import foodItemRouter from "./routes/fooditem.route.js"
 
-// app.use('/api/v1/Chatboot', chatbotRoutes);
+app.use('/api/v1/user', userRouter)
+app.use('/api/v1/fooditem', foodItemRouter)
 
 
 app.listen(process.env.PORT, () => {

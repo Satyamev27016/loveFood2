@@ -14,7 +14,7 @@ const SignIn = () => {
   const handleLogin = async (e) => {
     e.preventDefault(); // prevent default form submission
     try {
-      const response = await axios.post('http://localhost:8000/api/v1/user/login', {email, password }); 
+      const response = await axios.post('http://localhost:8000/api/v1/user/login', {email, password}, {withCredentials: true}); 
 
       const {user, accessToken, refreshToken} = response.data.data;
       setUser(user);
@@ -68,7 +68,11 @@ const SignIn = () => {
             </div>
 
             <div className='text-center text-md-start mt-4 pt-2'>
-              <MDBBtn className="mb-0 px-5" size='lg' onClick={handleLogin}>Login</MDBBtn>
+              <MDBBtn className="mb-0 px-5" 
+                    size='lg'  
+                    onClick={handleLogin}>
+                      Login
+                    </MDBBtn>
               <p className="small fw-bold mt-2 pt-1 mb-2">Don't have an account? <a href="/" className="link-danger">Register</a></p>
             </div>
             {message && <p className=" text-center mt-3">{message}</p>}

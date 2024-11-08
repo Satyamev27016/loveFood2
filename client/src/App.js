@@ -13,7 +13,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import SignUp from "./screen/SignUp.jsx";
 import SignIn from "./screen/SignIn.jsx" ;
 import Home from "./screen/Home.jsx";
-import ChatbootUI from "./screen/ChatbootUI.jsx";
+// import ChatbootUI from "./screen/ChatbootUI.jsx";
 
 import './App.css';
 
@@ -25,7 +25,7 @@ function App() {
     <Route exact path="/" element={<Home />} /> 
     <Route exact path="/SignUp" element={<SignUp/>} />
     <Route exact path="/SignIn" element={<SignIn/>} />
-    <Route exact path="/ChatbootUI" element={<ChatbootUI />} />
+    {/* <Route exact path="/ChatbootUI" element={<ChatbootUI />} /> */}
     </Routes>
     </div> 
     </Router>

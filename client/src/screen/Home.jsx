@@ -3,7 +3,7 @@ import NavBar from "../components/Navbar";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 import Carousel from "../components/Carousel";
-import ChatbootUI from "./ChatbootUI";
+
 
 export default function Home() {
     return (
@@ -15,7 +15,7 @@ export default function Home() {
         </div> 
 
         <div> <Footer /></div>
-        <div> <ChatbootUI /> </div>
+        
         </div>
     );
     }
