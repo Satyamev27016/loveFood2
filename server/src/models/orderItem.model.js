@@ -1,3 +1,6 @@
+
+import mongoose from 'mongoose';
+
 const orderItemSchema = new mongoose.Schema({
     orderId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -20,4 +23,4 @@ const orderItemSchema = new mongoose.Schema({
     },
 }, { timestamps: true });
 
-module.exports = mongoose.models.OrderItem || mongoose.model('OrderItem', orderItemSchema);
+export const OrderItem = mongoose.model("OrderItem", orderItemSchema);

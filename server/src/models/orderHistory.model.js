@@ -1,4 +1,6 @@
-const orderHistorySchema = new Schema({
+import mongoose from 'mongoose';
+
+const orderHistorySchema = new mongoose.Schema({
     orderId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Order',
@@ -11,4 +13,4 @@ const orderHistorySchema = new Schema({
     }
 }, { timestamps: true });
 
-module.exports = mongoose.models.OrderHistory || mongoose.model('OrderHistory', orderHistorySchema);
+export const orderHistory = mongoose.model("OrderHistory", orderHistorySchema);

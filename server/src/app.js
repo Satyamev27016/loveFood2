@@ -26,9 +26,11 @@ app.use(cookieParser())
 
 import userRouter from "./routes/user.route.js"
 import foodItemRouter from "./routes/fooditem.route.js"
+import orderRouter from "./routes/order.route.js"
 
 app.use('/api/v1/user', userRouter)
 app.use('/api/v1/fooditem', foodItemRouter)
+app.use('/api/v1/order', orderRouter)
 
 
 app.listen(process.env.PORT, () => {
