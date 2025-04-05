@@ -34,7 +34,7 @@ const orderSchema = new mongoose.Schema({
         type: String,
         enum: ['placed', 'delivered', 'cancelled'],
         required: true,
-        default: 'pending'
+        default: 'placed'
     },
     deliveryAddress: {
         type: String,
